@@ -25,16 +25,14 @@ What is the purpose of dual9Bmem in dropfifo.sch?
 **Figure 2:** wordmatch schematic
 
 
-
 <img width="822" height="637" title="reg9B schematic" alt="reg9B.sch" src="https://github.com/user-attachments/assets/60ae1fe7-f2ea-4d28-a694-f2efdef5f980" />
 
 **Figure 3:** reg9B schematic
 
 
+<img width="952" height="741" title="detect7B schematic" alt="detect7B.sch" src="https://github.com/user-attachments/assets/2a37bc2e-706b-42f1-a5b3-f5e17117a2e1" />
 
-title="detect schematic" alt="detect.sch"
-
-**Figure 4:** detect schematic
+**Figure 4:** detect7B schematic
 
 
 
