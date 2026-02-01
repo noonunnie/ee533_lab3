@@ -20,7 +20,7 @@ What is the purpose of dual9Bmem in dropfifo.sch?
 **Figure 1:** comparator schematic
 
 
-<img width="955" height="738" title="wordmatch schematic" alt="wordmatch.sch" src="https://github.com/user-attachments/assets/828dae28-1c85-403f-8090-6d32ce771365" />
+<img width="955" height="738" title="wordmatch schematic" alt="wordmatch.sch" src="https://github.com/user-attachments/assets/0447b87c-3df8-416b-be44-60fa573433f4" />
 
 **Figure 2:** wordmatch schematic
 
