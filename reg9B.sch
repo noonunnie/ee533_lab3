@@ -10,13 +10,10 @@ BEGIN SCHEMATIC
         SIGNAL q(71:0)
         SIGNAL d(71:64)
         SIGNAL d(15:0)
-        SIGNAL XLXN_6
-        SIGNAL XLXN_7
-        SIGNAL XLXN_9
         SIGNAL d(31:16)
         SIGNAL d(47:32)
         SIGNAL d(63:48)
-        SIGNAL dr
+        SIGNAL clr
         SIGNAL clk
         SIGNAL ce
         SIGNAL q(71:64)
@@ -26,7 +23,7 @@ BEGIN SCHEMATIC
         SIGNAL q(15:0)
         PORT Input d(7:0)
         PORT Output q(71:0)
-        PORT Input dr
+        PORT Input clr
         PORT Input clk
         PORT Input ce
         BEGIN BLOCKDEF fd16ce
@@ -62,35 +59,35 @@ BEGIN SCHEMATIC
         BEGIN BLOCK XLXI_2 fd16ce
             PIN C clk
             PIN CE ce
-            PIN CLR dr
+            PIN CLR clr
             PIN D(15:0) d(63:48)
             PIN Q(15:0) q(63:48)
         END BLOCK
         BEGIN BLOCK XLXI_3 fd16ce
             PIN C clk
             PIN CE ce
-            PIN CLR dr
+            PIN CLR clr
             PIN D(15:0) d(47:32)
             PIN Q(15:0) q(47:32)
         END BLOCK
         BEGIN BLOCK XLXI_4 fd16ce
             PIN C clk
             PIN CE ce
-            PIN CLR dr
+            PIN CLR clr
             PIN D(15:0) d(31:16)
             PIN Q(15:0) q(31:16)
         END BLOCK
         BEGIN BLOCK XLXI_5 fd16ce
             PIN C clk
             PIN CE ce
-            PIN CLR dr
+            PIN CLR clr
             PIN D(15:0) d(15:0)
             PIN Q(15:0) q(15:0)
         END BLOCK
         BEGIN BLOCK XLXI_6 fd8ce
             PIN C clk
             PIN CE ce
-            PIN CLR dr
+            PIN CLR clr
             PIN D(7:0) d(71:64)
             PIN Q(7:0) q(71:64)
         END BLOCK
@@ -144,7 +141,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH dr
+        BEGIN BRANCH clr
             WIRE 1184 2448 1392 2448
             WIRE 1392 2448 1568 2448
             WIRE 1392 704 1568 704
@@ -212,7 +209,7 @@ BEGIN SCHEMATIC
         END BRANCH
         IOMARKER 1184 2288 ce R180 28
         IOMARKER 1184 2352 clk R180 28
-        IOMARKER 1184 2448 dr R180 28
+        IOMARKER 1184 2448 clr R180 28
         INSTANCE XLXI_6 1568 736 R0
     END SHEET
 END SCHEMATIC

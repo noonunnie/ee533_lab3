@@ -10,15 +10,12 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_3
         SIGNAL XLXN_4
         SIGNAL XLXN_5
-        SIGNAL XLXN_6
         SIGNAL XLXN_7
-        SIGNAL XLXN_8
         SIGNAL XLXN_9
         SIGNAL XLXN_10
         SIGNAL XLXN_11
         SIGNAL XLXN_12
         SIGNAL datacomp(55:0)
-        SIGNAL XLXN_14(55:0)
         SIGNAL datain(55:0)
         SIGNAL datain(63:8)
         SIGNAL datain(71:16)

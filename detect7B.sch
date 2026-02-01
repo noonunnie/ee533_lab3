@@ -7,25 +7,21 @@ BEGIN SCHEMATIC
     END ATTR
     BEGIN NETLIST
         SIGNAL hwregA(63:0)
-        SIGNAL XLXN_5
-        SIGNAL XLXN_7
         SIGNAL pipe0(71:0)
         SIGNAL XLXN_9(111:0)
         SIGNAL hwregA(62:56)
         SIGNAL hwregA(55:0)
-        SIGNAL XLXN_17
         SIGNAL mrst
         SIGNAL XLXN_19
         SIGNAL match_en
         SIGNAL XLXN_25
         SIGNAL match
-        SIGNAL XLXN_27
         SIGNAL XLXN_28
         SIGNAL clk
         SIGNAL pipe1(71:0)
-        SIGNAL ce
         SIGNAL pipe0(47:0)
         SIGNAL pipe1(63:0)
+        SIGNAL ce
         PORT Input hwregA(63:0)
         PORT Input mrst
         PORT Input match_en
@@ -33,17 +29,6 @@ BEGIN SCHEMATIC
         PORT Input clk
         PORT Input pipe1(71:0)
         PORT Input ce
-        BEGIN BLOCKDEF reg9B
-            TIMESTAMP 2026 2 1 13 54 39
-            RECTANGLE N 64 -256 320 0 
-            RECTANGLE N 0 -236 64 -212 
-            LINE N 64 -224 0 -224 
-            LINE N 64 -160 0 -160 
-            LINE N 64 -96 0 -96 
-            LINE N 64 -32 0 -32 
-            RECTANGLE N 320 -236 384 -212 
-            LINE N 320 -224 384 -224 
-        END BLOCKDEF
         BEGIN BLOCKDEF wordmatch
             TIMESTAMP 2026 2 1 14 18 9
             RECTANGLE N 64 -192 320 0 
@@ -56,7 +41,7 @@ BEGIN SCHEMATIC
             LINE N 320 -160 384 -160 
         END BLOCKDEF
         BEGIN BLOCKDEF busmerge
-            TIMESTAMP 2026 2 1 14 25 2
+            TIMESTAMP 2026 2 1 14 55 3
             RECTANGLE N 320 20 384 44 
             LINE N 320 32 384 32 
             RECTANGLE N 0 -108 64 -84 
@@ -99,13 +84,17 @@ BEGIN SCHEMATIC
             LINE N 80 -128 64 -144 
             LINE N 64 -112 80 -128 
         END BLOCKDEF
-        BEGIN BLOCK XLXI_1 reg9B
-            PIN d(7:0) pipe1(71:0)
-            PIN dr clk
-            PIN clk ce
-            PIN ce XLXN_25
-            PIN q(71:0) pipe0(71:0)
-        END BLOCK
+        BEGIN BLOCKDEF reg9B
+            TIMESTAMP 2026 2 1 15 14 18
+            LINE N 64 32 0 32 
+            RECTANGLE N 0 -236 64 -212 
+            LINE N 64 -224 0 -224 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 320 -236 384 -212 
+            LINE N 320 -224 384 -224 
+            RECTANGLE N 64 -256 320 64 
+        END BLOCKDEF
         BEGIN BLOCK XLXI_6 busmerge
             PIN da(47:0) pipe0(47:0)
             PIN db(63:0) pipe1(63:0)
@@ -134,6 +123,13 @@ BEGIN SCHEMATIC
             PIN C clk
             PIN D mrst
             PIN Q XLXN_25
+        END BLOCK
+        BEGIN BLOCK XLXI_21 reg9B
+            PIN d(7:0) pipe1(71:0)
+            PIN clk clk
+            PIN ce ce
+            PIN q(71:0) pipe0(71:0)
+            PIN clr XLXN_25
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
@@ -164,8 +160,6 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN INSTANCE XLXI_1 800 960 R0
-        END INSTANCE
         BEGIN BRANCH pipe0(71:0)
             WIRE 1184 736 1408 736
             BEGIN DISPLAY 1408 736 ATTR Name
@@ -186,11 +180,11 @@ BEGIN SCHEMATIC
             WIRE 1888 1392 1888 1600
         END BRANCH
         BEGIN BRANCH XLXN_25
-            WIRE 608 928 608 1520
+            WIRE 608 992 608 1520
             WIRE 608 1520 608 2080
             WIRE 608 2080 2368 2080
             WIRE 608 1520 2368 1520
-            WIRE 608 928 800 928
+            WIRE 608 992 800 992
             WIRE 1824 1776 2368 1776
             WIRE 2368 1776 2368 2080
             WIRE 2368 1616 2368 1776
@@ -210,19 +204,13 @@ BEGIN SCHEMATIC
             WIRE 2304 1456 2368 1456
         END BRANCH
         BEGIN BRANCH clk
-            WIRE 464 800 720 800
-            WIRE 720 800 720 1904
+            WIRE 464 864 720 864
+            WIRE 720 864 800 864
+            WIRE 720 864 720 1904
             WIRE 720 1904 1440 1904
-            WIRE 720 800 800 800
         END BRANCH
         BEGIN BRANCH pipe1(71:0)
-            WIRE 464 736 752 736
-            WIRE 752 736 800 736
-        END BRANCH
-        BEGIN BRANCH ce
-            WIRE 464 864 752 864
-            WIRE 752 864 784 864
-            WIRE 784 864 800 864
+            WIRE 464 736 800 736
         END BRANCH
         BEGIN BRANCH pipe0(47:0)
             WIRE 480 1328 768 1328
@@ -239,8 +227,13 @@ BEGIN SCHEMATIC
         IOMARKER 1776 1600 match_en R180 28
         IOMARKER 1312 1776 mrst R180 28
         IOMARKER 464 736 pipe1(71:0) R180 28
-        IOMARKER 464 800 clk R180 28
-        IOMARKER 464 864 ce R180 28
         IOMARKER 2976 1392 match R0 28
+        IOMARKER 464 864 clk R180 28
+        BEGIN INSTANCE XLXI_21 800 960 R0
+        END INSTANCE
+        BEGIN BRANCH ce
+            WIRE 464 928 800 928
+        END BRANCH
+        IOMARKER 464 928 ce R180 28
     END SHEET
 END SCHEMATIC
