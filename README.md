@@ -29,9 +29,7 @@ What is the purpose of dual9Bmem in dropfifo.sch?
 
 **Figure 3:** reg9B schematic
 
-
-<img width="952" height="741" title="detect7B schematic" alt="detect7B.sch" src="https://github.com/user-attachments/assets/2a37bc2e-706b-42f1-a5b3-f5e17117a2e1" />
-
+<img width="997" height="777" title="detect7B schematic" alt="detect7B.sch" src="https://github.com/user-attachments/assets/53ef20ae-9d7c-489a-8455-c1d6a3e166cc" />
 **Figure 4:** detect7B schematic
 
 
