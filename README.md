@@ -3,6 +3,102 @@
 
 ## Pattern Matching Algorithm
 
+### **reg9B**
+
+* This is a 9-byte register.
+
+### **comparator**
+
+* This design takes in three inputs:
+
+  * Two 56-bit inputs: `a` and `b`
+  * One 7-bit input: `amask`
+* It has one 1-bit output: `match`.
+* The design compares each of the 7 bytes of `a` and `b`:
+
+  * If `amask[i] = 1`, the corresponding byte is **ignored** (treated as matched).
+  * If `amask[i] = 0`, the corresponding bytes are compared.
+* If all enabled bytes match, the comparator outputs `1`.
+
+
+### **wordmatch**
+
+* This design takes in:
+
+  * `datain`: 112-bit (14-byte) input
+  * `datacomp`: 56-bit (7-byte) reference input
+  * `wildcard`: 7-bit mask
+* It has one 1-bit output: `match`.
+* `wordmatch` uses a **7-byte sliding window** over `datain`:
+
+  * The window slides one byte at a time (8 possible positions).
+  * Each 7-byte chunk is compared against `datacomp`.
+* `wildcard` is used as `amask` for the comparator.
+* If **any** of the 7-byte chunks match, `wordmatch` outputs `1`.
+
+### **detect7B**
+
+* This design takes in six inputs:
+
+  * Control signals: `clk`, `ce`, `match_en`, `mrst`
+  * `pipe1`: 72-bit (9-byte) input
+  * `hwregA`: 64-bit (8-byte) input
+* It has one 1-bit output: `match`.
+
+
+* An internal pipeline register, `pipe0`, stores a delayed version of `pipe1`.
+* `pipe0[47:0]` is merged with `pipe1[63:0]` using `busmerge`.
+* This produces a 112-bit data window (`datain`) that is sent to `wordmatch`.
+* `wordmatch` compares `datain` to `hwregA[55:0]` using the mask `hwregA[62:56]`.
+* `match` can only be asserted if `match_en = 1`.
+* If `mrst = 1` → `match` is cleared to `0`
+* Else if `ce = 1` → `match` captures the comparison result
+* Else → `match` retains its previous value
+
+### **dropfifo**
+
+* (description goes here)
+
+
+## Report Questions
+
+### What is the purpose of `AMASK[6:0]`?
+
+* `AMASK` (called `wildcard` in `wordmatch`) allows selective byte matching.
+* For each bit:
+
+  * `1` → corresponding byte is ignored (treated as matched)
+  * `0` → corresponding byte must match `datacomp`
+* This enables wildcard-based pattern matching.
+
+---
+
+### What exactly does `busmerge.v` do?
+
+* `busmerge.v` concatenates:
+
+  * a 48-bit bus
+  * a 64-bit bus
+* In `detect7B`, it merges `pipe0[47:0]` and `pipe1[63:0]`
+* The result is a 112-bit bus (`datain`) used by `wordmatch`
+
+---
+
+### What do the `comp8` modules do in this schematic?
+
+* Each `comp8` compares **one byte (8 bits)** of data.
+* Seven `comp8` modules are used in parallel.
+* Their outputs are combined to determine whether the full word matches.
+
+---
+
+### What is the purpose of `dual9Bmem` in `dropfifo.sch`?
+
+* `dual9Bmem` is a 72-bit (9-byte) **dual-port memory**.
+* It serves as the **storage element of the FIFO**.
+* It allows simultaneous read and write operations and buffers incoming data.
+
+
 **reg9B**
     This is a 9-byte register
     
