@@ -25,22 +25,11 @@ BEGIN SCHEMATIC
         SIGNAL datain(103:48)
         SIGNAL wildcard(6:0)
         SIGNAL datain(111:56)
-        SIGNAL detain(111:0)
+        SIGNAL datain(111:0)
         PORT Output match
         PORT Input datacomp(55:0)
         PORT Input wildcard(6:0)
-        PORT Input detain(111:0)
-        BEGIN BLOCKDEF comparator
-            TIMESTAMP 2026 2 1 9 7 30
-            RECTANGLE N 64 -192 320 0 
-            RECTANGLE N 0 -172 64 -148 
-            LINE N 64 -160 0 -160 
-            RECTANGLE N 0 -108 64 -84 
-            LINE N 64 -96 0 -96 
-            RECTANGLE N 0 -44 64 -20 
-            LINE N 64 -32 0 -32 
-            LINE N 320 -160 384 -160 
-        END BLOCKDEF
+        PORT Input datain(111:0)
         BEGIN BLOCKDEF or8
             TIMESTAMP 2000 1 1 10 10 10
             LINE N 0 -64 48 -64 
@@ -60,48 +49,17 @@ BEGIN SCHEMATIC
             LINE N 48 -336 48 -512 
             LINE N 48 -64 48 -240 
         END BLOCKDEF
-        BEGIN BLOCK XLXI_1 comparator
-            PIN a(55:0) datacomp(55:0)
-            PIN b(55:0) datain(55:0)
-            PIN amask(6:0) wildcard(6:0)
-            PIN match XLXN_3
-        END BLOCK
-        BEGIN BLOCK XLXI_3 comparator
-            PIN a(55:0) datacomp(55:0)
-            PIN b(55:0) datain(71:16)
-            PIN amask(6:0) wildcard(6:0)
-            PIN match XLXN_5
-        END BLOCK
-        BEGIN BLOCK XLXI_4 comparator
-            PIN a(55:0) datacomp(55:0)
-            PIN b(55:0) datain(79:24)
-            PIN amask(6:0) wildcard(6:0)
-            PIN match XLXN_7
-        END BLOCK
-        BEGIN BLOCK XLXI_5 comparator
-            PIN a(55:0) datacomp(55:0)
-            PIN b(55:0) datain(87:32)
-            PIN amask(6:0) wildcard(6:0)
-            PIN match XLXN_9
-        END BLOCK
-        BEGIN BLOCK XLXI_6 comparator
-            PIN a(55:0) datacomp(55:0)
-            PIN b(55:0) datain(95:40)
-            PIN amask(6:0) wildcard(6:0)
-            PIN match XLXN_10
-        END BLOCK
-        BEGIN BLOCK XLXI_7 comparator
-            PIN a(55:0) datacomp(55:0)
-            PIN b(55:0) datain(103:48)
-            PIN amask(6:0) wildcard(6:0)
-            PIN match XLXN_11
-        END BLOCK
-        BEGIN BLOCK XLXI_8 comparator
-            PIN a(55:0) datacomp(55:0)
-            PIN b(55:0) datain(111:56)
-            PIN amask(6:0) wildcard(6:0)
-            PIN match XLXN_12
-        END BLOCK
+        BEGIN BLOCKDEF comparator
+            TIMESTAMP 2026 2 3 4 45 0
+            RECTANGLE N 64 -192 320 0 
+            RECTANGLE N 0 -172 64 -148 
+            LINE N 64 -160 0 -160 
+            RECTANGLE N 0 -108 64 -84 
+            LINE N 64 -96 0 -96 
+            RECTANGLE N 0 -44 64 -20 
+            LINE N 64 -32 0 -32 
+            LINE N 320 -160 384 -160 
+        END BLOCKDEF
         BEGIN BLOCK XLXI_17 or8
             PIN I0 XLXN_12
             PIN I1 XLXN_11
@@ -113,28 +71,56 @@ BEGIN SCHEMATIC
             PIN I7 XLXN_3
             PIN O match
         END BLOCK
-        BEGIN BLOCK XLXI_18 comparator
+        BEGIN BLOCK XLXI_19 comparator
+            PIN a(55:0) datacomp(55:0)
+            PIN b(55:0) datain(55:0)
+            PIN amask(6:0) wildcard(6:0)
+            PIN match XLXN_3
+        END BLOCK
+        BEGIN BLOCK XLXI_20 comparator
             PIN a(55:0) datacomp(55:0)
             PIN b(55:0) datain(63:8)
             PIN amask(6:0) wildcard(6:0)
             PIN match XLXN_4
         END BLOCK
+        BEGIN BLOCK XLXI_21 comparator
+            PIN a(55:0) datacomp(55:0)
+            PIN b(55:0) datain(71:16)
+            PIN amask(6:0) wildcard(6:0)
+            PIN match XLXN_5
+        END BLOCK
+        BEGIN BLOCK XLXI_22 comparator
+            PIN a(55:0) datacomp(55:0)
+            PIN b(55:0) datain(79:24)
+            PIN amask(6:0) wildcard(6:0)
+            PIN match XLXN_7
+        END BLOCK
+        BEGIN BLOCK XLXI_23 comparator
+            PIN a(55:0) datacomp(55:0)
+            PIN b(55:0) datain(87:32)
+            PIN amask(6:0) wildcard(6:0)
+            PIN match XLXN_9
+        END BLOCK
+        BEGIN BLOCK XLXI_24 comparator
+            PIN a(55:0) datacomp(55:0)
+            PIN b(55:0) datain(95:40)
+            PIN amask(6:0) wildcard(6:0)
+            PIN match XLXN_10
+        END BLOCK
+        BEGIN BLOCK XLXI_25 comparator
+            PIN a(55:0) datacomp(55:0)
+            PIN b(55:0) datain(103:48)
+            PIN amask(6:0) wildcard(6:0)
+            PIN match XLXN_11
+        END BLOCK
+        BEGIN BLOCK XLXI_26 comparator
+            PIN a(55:0) datacomp(55:0)
+            PIN b(55:0) datain(111:56)
+            PIN amask(6:0) wildcard(6:0)
+            PIN match XLXN_12
+        END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
-        BEGIN INSTANCE XLXI_1 1504 528 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_3 1504 1040 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_4 1504 1296 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_5 1504 1552 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_6 1504 1808 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_7 1504 2064 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_8 1504 2320 R0
-        END INSTANCE
         INSTANCE XLXI_17 2448 1584 R0
         BEGIN BRANCH match
             WIRE 2704 1296 2880 1296
@@ -146,7 +132,8 @@ BEGIN SCHEMATIC
         BEGIN BRANCH XLXN_4
             WIRE 1888 624 2160 624
             WIRE 2160 624 2160 1136
-            WIRE 2160 1136 2448 1136
+            WIRE 2160 1136 2432 1136
+            WIRE 2432 1136 2448 1136
         END BRANCH
         BEGIN BRANCH XLXN_5
             WIRE 1888 880 2144 880
@@ -180,8 +167,8 @@ BEGIN SCHEMATIC
         BEGIN BRANCH datacomp(55:0)
             WIRE 992 368 1216 368
             WIRE 1216 368 1504 368
-            WIRE 1216 368 1216 624
-            WIRE 1216 624 1504 624
+            WIRE 1216 368 1216 608
+            WIRE 1216 608 1216 624
             WIRE 1216 624 1216 880
             WIRE 1216 880 1504 880
             WIRE 1216 880 1216 1136
@@ -194,18 +181,11 @@ BEGIN SCHEMATIC
             WIRE 1216 1904 1216 2160
             WIRE 1216 2160 1504 2160
             WIRE 1216 1904 1504 1904
+            WIRE 1216 624 1504 624
         END BRANCH
-        BEGIN INSTANCE XLXI_18 1504 784 R0
-        END INSTANCE
         BEGIN BRANCH datain(55:0)
             WIRE 1424 432 1504 432
             BEGIN DISPLAY 1424 432 ATTR Name
-                ALIGNMENT SOFT-RIGHT
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH datain(63:8)
-            WIRE 1424 688 1504 688
-            BEGIN DISPLAY 1424 688 ATTR Name
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
@@ -243,12 +223,11 @@ BEGIN SCHEMATIC
         BEGIN BRANCH wildcard(6:0)
             WIRE 944 496 1104 496
             WIRE 1104 496 1504 496
-            WIRE 1104 496 1104 752
-            WIRE 1104 752 1504 752
+            WIRE 1104 496 1104 736
+            WIRE 1104 736 1104 752
             WIRE 1104 752 1104 1008
             WIRE 1104 1008 1504 1008
-            WIRE 1104 1008 1104 1248
-            WIRE 1104 1248 1104 1264
+            WIRE 1104 1008 1104 1264
             WIRE 1104 1264 1504 1264
             WIRE 1104 1264 1104 1520
             WIRE 1104 1520 1504 1520
@@ -258,6 +237,7 @@ BEGIN SCHEMATIC
             WIRE 1104 2032 1104 2288
             WIRE 1104 2288 1504 2288
             WIRE 1104 2032 1504 2032
+            WIRE 1104 752 1504 752
         END BRANCH
         BEGIN BRANCH datain(111:56)
             WIRE 1424 2224 1504 2224
@@ -267,13 +247,36 @@ BEGIN SCHEMATIC
         END BRANCH
         IOMARKER 992 368 datacomp(55:0) R180 28
         IOMARKER 2880 1296 match R0 28
-        BEGIN BRANCH detain(111:0)
+        BEGIN BRANCH datain(111:0)
             WIRE 960 240 1184 240
             BEGIN DISPLAY 1184 240 ATTR Name
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
         END BRANCH
-        IOMARKER 960 240 detain(111:0) R180 28
+        IOMARKER 960 240 datain(111:0) R180 28
         IOMARKER 944 496 wildcard(6:0) R180 28
+        BEGIN BRANCH datain(63:8)
+            WIRE 1424 688 1440 688
+            WIRE 1440 688 1504 688
+            BEGIN DISPLAY 1424 688 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN INSTANCE XLXI_19 1504 528 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_20 1504 784 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_21 1504 1040 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_22 1504 1296 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_23 1504 1552 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_24 1504 1808 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_25 1504 2064 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_26 1504 2320 R0
+        END INSTANCE
     END SHEET
 END SCHEMATIC

@@ -16,43 +16,19 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_14
         SIGNAL fiforead
         SIGNAL XLXN_32
-        SIGNAL XLXN_33
-        SIGNAL XLXN_46(7:0)
         SIGNAL waddr(7:0)
         SIGNAL in_fifo0(71:0)
         SIGNAL raddr(7:0)
         SIGNAL XLXN_55
-        SIGNAL XLXN_56
         SIGNAL valid_data
         SIGNAL fifowrite
         SIGNAL in_fifo(71:0)
         SIGNAL rst
-        SIGNAL XLXN_61
-        SIGNAL XLXN_62
-        SIGNAL XLXN_64
-        SIGNAL XLXN_65
-        SIGNAL XLXN_67
-        SIGNAL XLXN_68
-        SIGNAL XLXN_69
-        SIGNAL XLXN_70
         SIGNAL XLXN_74
         SIGNAL XLXN_30
         SIGNAL XLXN_28
         SIGNAL lastword
-        SIGNAL XLXN_76(7:0)
-        SIGNAL XLXN_77
-        SIGNAL XLXN_78
-        SIGNAL XLXN_79
-        SIGNAL XLXN_81(7:0)
-        SIGNAL XLXN_83
-        SIGNAL XLXN_84(7:0)
-        SIGNAL XLXN_86
-        SIGNAL XLXN_89
-        SIGNAL XLXN_90(7:0)
         SIGNAL XLXN_97(7:0)
-        SIGNAL XLXN_98(7:0)
-        SIGNAL XLXN_99
-        SIGNAL XLXN_102
         SIGNAL out_fifo(71:0)
         PORT Input firstword
         PORT Input clk
@@ -98,7 +74,7 @@ BEGIN SCHEMATIC
             LINE N 0 -128 64 -128 
         END BLOCKDEF
         BEGIN BLOCKDEF reg9B
-            TIMESTAMP 2026 2 1 15 14 18
+            TIMESTAMP 2026 2 3 4 54 29
             LINE N 64 32 0 32 
             RECTANGLE N 0 -236 64 -212 
             LINE N 64 -224 0 -224 
@@ -237,11 +213,11 @@ BEGIN SCHEMATIC
             PIN Q XLXN_55
         END BLOCK
         BEGIN BLOCK XLXI_16 reg9B
-            PIN d(7:0) in_fifo(71:0)
+            PIN d(71:0) in_fifo(71:0)
+            PIN clr rst
             PIN clk clk
             PIN ce XLXN_74
             PIN q(71:0) in_fifo0(71:0)
-            PIN clr rst
         END BLOCK
         BEGIN BLOCK XLXI_18 cb8ce
             PIN C clk
@@ -399,7 +375,7 @@ BEGIN SCHEMATIC
             BEGIN DISPLAY 2688 1728 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
-            BEGIN DISPLAY 2831 1328 ATTR Name
+            BEGIN DISPLAY 2832 1328 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH
@@ -445,11 +421,12 @@ BEGIN SCHEMATIC
             WIRE 2144 1520 2896 1520
             WIRE 2896 1520 2944 1520
             WIRE 2144 544 2208 544
+            WIRE 2208 544 2208 544
             WIRE 2208 544 2272 544
             WIRE 2896 1296 2944 1296
             WIRE 2896 1296 2896 1472
             WIRE 2896 1472 2896 1520
-            BEGIN DISPLAY 2211 544 ATTR Name
+            BEGIN DISPLAY 2212 544 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
             BEGIN DISPLAY 2240 1360 ATTR Name
@@ -502,11 +479,12 @@ BEGIN SCHEMATIC
             WIRE 2240 1952 2256 1952
             WIRE 512 1328 512 1456
             WIRE 512 1328 528 1328
+            WIRE 528 1328 528 1328
             WIRE 528 1328 560 1328
             WIRE 2064 672 2064 1456
             WIRE 2064 672 2224 672
             WIRE 2224 672 2272 672
-            BEGIN DISPLAY 531 1328 ATTR Name
+            BEGIN DISPLAY 532 1328 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
             BEGIN DISPLAY 2224 672 ATTR Name

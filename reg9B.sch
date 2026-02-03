@@ -6,7 +6,7 @@ BEGIN SCHEMATIC
         EDITTRAIT all:0
     END ATTR
     BEGIN NETLIST
-        SIGNAL d(7:0)
+        SIGNAL d(71:0)
         SIGNAL q(71:0)
         SIGNAL d(71:64)
         SIGNAL d(15:0)
@@ -21,7 +21,7 @@ BEGIN SCHEMATIC
         SIGNAL q(47:32)
         SIGNAL q(31:16)
         SIGNAL q(15:0)
-        PORT Input d(7:0)
+        PORT Input d(71:0)
         PORT Output q(71:0)
         PORT Input clr
         PORT Input clk
@@ -93,7 +93,7 @@ BEGIN SCHEMATIC
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
-        BEGIN BRANCH d(7:0)
+        BEGIN BRANCH d(71:0)
             WIRE 400 288 768 288
             BEGIN DISPLAY 768 288 ATTR Name
                 ALIGNMENT SOFT-LEFT
@@ -105,7 +105,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        IOMARKER 400 288 d(7:0) R180 28
+        IOMARKER 400 288 d(71:0) R180 28
         IOMARKER 3040 320 q(71:0) R0 28
         INSTANCE XLXI_3 1568 1568 R0
         INSTANCE XLXI_5 1568 2480 R0
