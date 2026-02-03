@@ -58,8 +58,35 @@
 
 ### **dropfifo**
 
-* (description goes here)
+Got it — same structure, same bullet style, just adapted to **dropfifo**.
+Here is a **matching, consistent description** you can paste directly under it.
 
+---
+
+### **dropfifo**
+
+* This design takes in 8 inputs:
+
+  * Control signals: `clk`, `rst`, `drop_pkt`, `fifowrite`, `fiforead`,  
+  * `lastword`: 72-bit (9-byte) input data
+
+* It has 2 outputs:
+
+  * `out_fifo`: 72-bit (9-byte) output data
+  * `valid_data`: 1-bit signal indicating valid output data
+
+* Incoming data is written into an internal FD8CE when valid data is present and `drop_pkt` is 0.
+
+* The FIFO storage is implemented using a synchronous dual-port memory (`dual9Bmem`), allowing read and write operations.
+
+* When `drop_pkt` is asserted, incoming data is discarded
+
+* Finally, on each rising edge of the clock:
+
+  * If `rst = 1` → FIFO state is reset and output is invalid
+  * Else if write conditions are met → input data is written and the write pointer advances
+  * Else if read conditions are met → output data is read and the read pointer advances
+  * Else → FIFO state is held
 
 ## Report Questions
 
