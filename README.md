@@ -47,13 +47,14 @@
 
 
 * An internal pipeline register, `pipe0`, stores a delayed version of `pipe1`.
-* `pipe0[47:0]` is merged with `pipe1[63:0]` using `busmerge`.
-* This produces a 112-bit data window (`datain`) that is sent to `wordmatch`.
-* `wordmatch` compares `datain` to `hwregA[55:0]` using the mask `hwregA[62:56]`.
+* `pipe0[47:0]`, which is the old pipe1 data minus the wildcard bits, is merged with `pipe1[63:0]` using `busmerge`, which produces a 112-bit data window (`datain`) that is sent to `wordmatch`.
+* `wordmatch` compares `datain` to `hwregA[55:0]` using the "wildcard" mask `hwregA[62:56]`.
 * `match` can only be asserted if `match_en = 1`.
-* If `mrst = 1` → `match` is cleared to `0`
-* Else if `ce = 1` → `match` captures the comparison result
-* Else → `match` retains its previous value
+* Finally, n the rising edge of the clock
+
+ * If `mrst = 1` → `match` is cleared to `0`
+ * Else if `ce = 1` → `match` captures the comparison result
+ * Else → `match` retains its previous value
 
 ### **dropfifo**
 
@@ -64,14 +65,12 @@
 
 ### What is the purpose of `AMASK[6:0]`?
 
-* `AMASK` (called `wildcard` in `wordmatch`) allows selective byte matching.
-* For each bit:
+* `AMASK` (called `wildcard` in `wordmatch`) gives us the ability to only match certain bytes in wordmatch.
+* For each bit if amask is set to...
 
-  * `1` → corresponding byte is ignored (treated as matched)
-  * `0` → corresponding byte must match `datacomp`
-* This enables wildcard-based pattern matching.
-
----
+  * `1` → corresponding byte from the word (datain) is ignored (counted as if it is matched to datacomp)
+  * `0` → the corresponding byte from the word is checked for a match against datacomp(55:0)
+* within comparator.v it is comparing each byte in a(55:0) and b(55:0) except for the bytes masked by AMASK
 
 ### What exactly does `busmerge.v` do?
 
@@ -82,15 +81,11 @@
 * In `detect7B`, it merges `pipe0[47:0]` and `pipe1[63:0]`
 * The result is a 112-bit bus (`datain`) used by `wordmatch`
 
----
-
 ### What do the `comp8` modules do in this schematic?
 
 * Each `comp8` compares **one byte (8 bits)** of data.
 * Seven `comp8` modules are used in parallel.
 * Their outputs are combined to determine whether the full word matches.
-
----
 
 ### What is the purpose of `dual9Bmem` in `dropfifo.sch`?
 
@@ -110,32 +105,6 @@
     This design takes in 3 inputs: a 112-bit (14 byte) input called datain, a 56-bit (7 byte) input called datacomp, and a 7-bit input called wildcard. It has 1 1-bit output called match. 
     wordmatch compares uses a 7-btye sliding window (slides by 1 byte each time) to compare 8 chunks of datain to datacomp, the reference. wildcard is just used as amask from the comparator design, masking each of the 8 7-byte chunks of datain the same way. if any of the 7-byte chunks from datain match datacomp, wildcard ouputs a 1.
 
-**detect7B**
-     this design takes in 6 inputs: 4 signals (clk, ce, match_en, and mrst), a 72-bit (9 byte) input called pipe1, and a 64-bit input (8 byte) called hwregA. It has 1 1-bit output called match. 
-     It uses an internal pipeline register, pipe0, to capture delayed data from pipe1. It then merges pipe0(47:0), which is the old pipe1 data minus the wildcard bits, with the lower 64 bits of pipe1 (pipe(63:0)) using the busmerge component which produces a 112-bit data window (datain) that is passed to the wordmatch module to see if there are any matches to the hwregA(55:0) sequence (the wildcard mask is from hwregA(62:56)). match can only be 1 if match_en = 1.
-     Finally, on each rising clock edge:
-       If mrst = 1
-         match is cleared to 0
-       Else if ce = 1
-         match captures the current comparison result
-       Else
-         match retains its previous value
-    
-**dropfifo**
-    
-
-What is the purpose of AMASK[6:0]?
-    AMASK from comparator.v (assigned wildcard(6:0) in wordmatch.v) gives us the ability to only match certain bytes in wordmatch
-    - If a bit of amask is set to 1, the corresponding byte from the word (datain) is ignored (counted as if it is matched to datacomp)
-    - If a bit of amask is set to 0, the corresponding byte from the word is checked for a match against datacomp(55:0)
-    within comparator.v it is comparing each byte in a(55:0) and b(55:0) except for the bytes masked by AMASK
-
-What exactly does busmerge.v do?
-    busmerge.v combines a 48 bit bus and 64 bit bus. In detect7B it is used to merge pipe0(47:0) and pipe1(63:0) and input it into wordmatch as datain(111:0) in wordmatch to compare each byte that wildcard does not mask to hwregA(55:0)
-
-What do the comp8 modules do in this schematic?
-
-What is the purpose of dual9Bmem in dropfifo.sch?
 
 
 
