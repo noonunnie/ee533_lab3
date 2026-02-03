@@ -3,6 +3,8 @@
 
 ## Pattern Matching Algorithm
 
+The pieces of the system were easy to undersand from the schematics, but understanding how the whole system worked together required the testbench as an overall guide to understand. To my understanding, the design processes incoming 72-bit data words through reg9B then and passes them through detect7B to slide across 112 bits of the input to find selective matches (using a wildcard mask) with a 72-bit reference sequence (assumedly the intrusion sequence we are trying to detect). The match signal is only gotten when enabled and when valid comparison conditions are met, and the overall operations and read/write is controlled using dropfifo. So, the design integrates buffering (particularly in dropfifo), window sliding (wordmatch), and masked pattern matching (comparator) to provide intrusion detection.
+
 ### **reg9B**
 
 * This is a 9-byte register.
