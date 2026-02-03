@@ -168,6 +168,9 @@
   <strong>Figure 5:</strong> dropfifo schematic
 </p>
 
+---
+note: chatgpt used solely for formatting
+
 
 
 
