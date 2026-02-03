@@ -99,25 +99,51 @@
 
 ## Schematics
 
-<img width="841" height="653" title="comparator schematic" alt="comparator.sch" src="https://github.com/user-attachments/assets/fbcfd565-bda5-4f50-a4c2-1a761a844a17" />
+<p align="center">
+  <img width="841" height="653"
+       title="comparator schematic"
+       alt="comparator.sch"
+       src="https://github.com/user-attachments/assets/fbcfd565-bda5-4f50-a4c2-1a761a844a17" />
+  <br>
+  <strong>Figure 1:</strong> comparator schematic
+</p>
 
-**Figure 1:** comparator schematic
+<p align="center">
+  <img width="841" height="657"
+       title="wordmatch schematic"
+       alt="wordmatch.sch"
+       src="https://github.com/user-attachments/assets/e2c08a6d-d39b-4a6f-b076-eabea9f75547" />
+  <br>
+  <strong>Figure 2:</strong> wordmatch schematic
+</p>
 
-<img width="841" height="657" title="wordmatch schematic" alt="wordmatch.sch" src="https://github.com/user-attachments/assets/e2c08a6d-d39b-4a6f-b076-eabea9f75547" />
+<p align="center">
+  <img width="842" height="652"
+       title="reg9B schematic"
+       alt="reg9B.sch"
+       src="https://github.com/user-attachments/assets/5fc6233f-e276-4ca0-842c-9d3bab479341" />
+  <br>
+  <strong>Figure 3:</strong> reg9B schematic
+</p>
 
-**Figure 2:** wordmatch schematic
+<p align="center">
+  <img width="842" height="653"
+       title="detect7B schematic"
+       alt="detect7B.sch"
+       src="https://github.com/user-attachments/assets/0f8bf4fc-af3f-4cd2-a202-fdddfae43d25" />
+  <br>
+  <strong>Figure 4:</strong> detect7B schematic
+</p>
 
-<img width="842" height="652" title="reg9B schematic" alt="reg9B.sch" src="https://github.com/user-attachments/assets/5fc6233f-e276-4ca0-842c-9d3bab479341" />
+<p align="center">
+  <img width="845" height="652"
+       title="dropfifo schematic"
+       alt="dropfifo.sch"
+       src="https://github.com/user-attachments/assets/3b04538a-487d-414f-893d-f502b027a57f" />
+  <br>
+  <strong>Figure 5:</strong> dropfifo schematic
+</p>
 
-**Figure 3:** reg9B schematic
-
-<img width="842" height="653" title="detect7B schematic" alt="detect7B.sch" src="https://github.com/user-attachments/assets/0f8bf4fc-af3f-4cd2-a202-fdddfae43d25" />
-
-**Figure 4:** detect7B schematic
-
-<img width="845" height="652"  title="dropfifo schematic" alt="dropfifo.sch" src="https://github.com/user-attachments/assets/3b04538a-487d-414f-893d-f502b027a57f" />
-
-**Figure 5:** dropfifo schematic
 
 
 
