@@ -100,18 +100,23 @@
 ## Schematics
 
 <img width="841" height="653" title="comparator schematic" alt="comparator.sch" src="https://github.com/user-attachments/assets/fbcfd565-bda5-4f50-a4c2-1a761a844a17" />
+
 **Figure 1:** comparator schematic
 
 <img width="841" height="657" title="wordmatch schematic" alt="wordmatch.sch" src="https://github.com/user-attachments/assets/e2c08a6d-d39b-4a6f-b076-eabea9f75547" />
+
 **Figure 2:** wordmatch schematic
 
 <img width="842" height="652" title="reg9B schematic" alt="reg9B.sch" src="https://github.com/user-attachments/assets/5fc6233f-e276-4ca0-842c-9d3bab479341" />
+
 **Figure 3:** reg9B schematic
 
 <img width="842" height="653" title="detect7B schematic" alt="detect7B.sch" src="https://github.com/user-attachments/assets/0f8bf4fc-af3f-4cd2-a202-fdddfae43d25" />
+
 **Figure 4:** detect7B schematic
 
 <img width="845" height="652"  title="dropfifo schematic" alt="dropfifo.sch" src="https://github.com/user-attachments/assets/3b04538a-487d-414f-893d-f502b027a57f" />
+
 **Figure 4:** dropfifo schematic
 
 
