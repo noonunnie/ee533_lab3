@@ -108,6 +108,7 @@
   <strong>Figure 1:</strong> comparator schematic
 </p>
 
+---
 <p align="center">
   <img width="841" height="657"
        title="wordmatch schematic"
@@ -117,6 +118,7 @@
   <strong>Figure 2:</strong> wordmatch schematic
 </p>
 
+---
 <p align="center">
   <img width="842" height="652"
        title="reg9B schematic"
@@ -126,6 +128,7 @@
   <strong>Figure 3:</strong> reg9B schematic
 </p>
 
+---
 <p align="center">
   <img width="842" height="653"
        title="detect7B schematic"
@@ -135,6 +138,7 @@
   <strong>Figure 4:</strong> detect7B schematic
 </p>
 
+---
 <p align="center">
   <img width="845" height="652"
        title="dropfifo schematic"
