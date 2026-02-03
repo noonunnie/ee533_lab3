@@ -117,7 +117,7 @@
 
 <img width="845" height="652"  title="dropfifo schematic" alt="dropfifo.sch" src="https://github.com/user-attachments/assets/3b04538a-487d-414f-893d-f502b027a57f" />
 
-**Figure 4:** dropfifo schematic
+**Figure 5:** dropfifo schematic
 
 
 
