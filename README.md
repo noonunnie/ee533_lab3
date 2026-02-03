@@ -84,28 +84,17 @@
 ### What do the `comp8` modules do in this schematic?
 
 * Each `comp8` compares **one byte (8 bits)** of data.
-* Seven `comp8` modules are used in parallel.
-* Their outputs are combined to determine whether the full word matches.
+* Seven `comp8` modules are used in parallel in the 'comparator' design along with amask to see if a 7-byte sequence matches another 7-byte sequence
 
 ### What is the purpose of `dual9Bmem` in `dropfifo.sch`?
 
 * `dual9Bmem` is a 72-bit (9-byte) **dual-port memory**.
 * It serves as the **storage element of the FIFO**.
-* It allows simultaneous read and write operations and buffers incoming data.
-
-
-**reg9B**
-    This is a 9-byte register
-    
-**comparator** 
-    This design takes in 3 inputs: 2 56-bit chunks of data called a and b and a 7-bit input called amask. It has 1 1-bit output called match. 
-    It compares each of the 7 bytes of a and b to each other as long as the corresponding amask bit is set to 1. if the corresponding amask bit is set to 0 it just counts those bytes as matched (if amask(0) = 0 then the first bytes of a and b - a(7:0) and b(7:0) - are considered matched). If all the bytes are matching, then comparator outputs 1.
-
-**wordmatch**
-    This design takes in 3 inputs: a 112-bit (14 byte) input called datain, a 56-bit (7 byte) input called datacomp, and a 7-bit input called wildcard. It has 1 1-bit output called match. 
-    wordmatch compares uses a 7-btye sliding window (slides by 1 byte each time) to compare 8 chunks of datain to datacomp, the reference. wildcard is just used as amask from the comparator design, masking each of the 8 7-byte chunks of datain the same way. if any of the 7-byte chunks from datain match datacomp, wildcard ouputs a 1.
-
-
+* It allows read and write operations and buffers incoming data.
+* See optioons selected below:
+<img width="768" height="610" alt="dual9Bmem_1" src="https://github.com/user-attachments/assets/5f7db361-8701-4868-96d7-3e8dec9e2dea" />
+<img width="767" height="610" alt="dual9Bmem_2" src="https://github.com/user-attachments/assets/5ceb856e-3714-4dfe-aa91-fcbbded472c7" />
+<img width="765" height="612" alt="dual9Bmem_3" src="https://github.com/user-attachments/assets/41a0a1f6-9ad5-4532-90e0-5a72d03f512d" />
 
 
 ## Schematics
@@ -125,9 +114,6 @@
 <img width="845" height="652"  title="dropfifo schematic" alt="dropfifo.sch" src="https://github.com/user-attachments/assets/3b04538a-487d-414f-893d-f502b027a57f" />
 **Figure 4:** dropfifo schematic
 
-
-
-## Generated Verilog
 
 
 
