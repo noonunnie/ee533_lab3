@@ -58,13 +58,6 @@
 
 ### **dropfifo**
 
-Got it — same structure, same bullet style, just adapted to **dropfifo**.
-Here is a **matching, consistent description** you can paste directly under it.
-
----
-
-### **dropfifo**
-
 * This design takes in 8 inputs:
 
   * Control signals: `clk`, `rst`, `drop_pkt`, `fifowrite`, `fiforead`,  
